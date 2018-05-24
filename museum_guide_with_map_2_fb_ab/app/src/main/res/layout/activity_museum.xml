@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/museum_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".museumpackage.MuseumActivity"
+        tools:layout_editor_absoluteY="81dp">
+
+        <RatingBar
+            android:theme="@style/MyRatingBar"
+            android:id="@+id/museum_ratingBar"
+            android:layout_width="239dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/museum_inf_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/poster"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Заголовок"
+                android:textColor="@color/veryBlack"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/museum_inf_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/map1">
+
+            <TextView
+                android:id="@+id/adress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:text="Адрес"
+                android:textColor="@color/veryBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="168dp"
+                tools:layout_editor_absoluteY="210dp" />
+
+            <TextView
+                android:id="@+id/website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Вебсайт"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="161dp"
+                tools:layout_editor_absoluteY="232dp" />
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:text="Телефон"
+                android:textColor="@color/veryBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="159dp"
+                tools:layout_editor_absoluteY="250dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/trivia"
+
+            android:layout_width="330dp"
+            android:layout_height="192dp"
+
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Тривия"
+            android:textColor="@color/veryBlack"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/museum_inf_container"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/map1"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="343dp"
+            android:layout_height="117dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/poster" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

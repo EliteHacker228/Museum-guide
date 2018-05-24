@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/pic_ic_search"
+        android:title="Поиск"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.widget.SearchView" />
+    <item
+        android:id="@+id/action_rating_sort"
+        android:orderInCategory="100"
+        android:title="Сортировать по рейтингу"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_aplhabet_sort_a_z"
+        android:orderInCategory="100"
+        android:title="Сортировать А-Я"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_aplhabet_sort_z_a"
+        android:orderInCategory="100"
+        android:title="Сортировать Я-А"
+        app:showAsAction="never"/>
+</menu>
