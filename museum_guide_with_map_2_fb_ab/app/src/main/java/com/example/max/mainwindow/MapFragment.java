@@ -51,8 +51,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        initDB();
         View view= inflater.inflate(R.layout.fragment_map, container, false);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
@@ -71,6 +72,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         LatLng Ural= new LatLng(56.841039, 60.622288);
         LatLng ekaterinburg= new LatLng(56.837319, 60.605603);
 
+
+
         for (Museum m: museums){
             LatLng name= new LatLng(m.getV(), m.getV1());
             mMap.addMarker(new MarkerOptions().position(name).title(m.getMname()));
@@ -79,7 +82,56 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(ekaterinburg));
     }
+    public void initDB(){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fireapp-12b506.firebaseio.com/museums");
 
+        ref.addChildEventListener(new ChildEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                Museum m = dataSnapshot.getValue(Museum.class);
+                museums.add(m);
+                musemsTree.put(m.getUi(), m);
+
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Museum changedMuseum = dataSnapshot.getValue(Museum.class);
+                String key = changedMuseum.getUi();
+                Museum sourceMuseum = musemsTree.get(key);
+                musemsTree.put(key, changedMuseum);
+                changedMuseum.setUi(key);
+                int index = museums.indexOf(sourceMuseum);
+                museums.set(index, changedMuseum);
+
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Museum removedMuseum = dataSnapshot.getValue(Museum.class);
+                museums.remove(removedMuseum);
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Не удаётся получить доступ к базе данных. Пожалуйста, проверьте подключение к интернету.", Toast.LENGTH_LONG).show();
+            }
+
+
+        });
+
+    }
 
     }
 
