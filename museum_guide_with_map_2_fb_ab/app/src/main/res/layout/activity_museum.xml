@@ -60,6 +60,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:textIsSelectable="true"
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,7 +96,7 @@
                 android:id="@+id/adress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textIsSelectable="true"
 
                 android:text="Адрес"
                 android:textColor="@color/veryBlack"
@@ -109,7 +110,7 @@
                 android:id="@+id/website"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textIsSelectable="true"
                 android:text="Вебсайт"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
@@ -122,7 +123,7 @@
                 android:id="@+id/phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textIsSelectable="true"
 
                 android:text="Телефон"
                 android:textColor="@color/veryBlack"
@@ -139,7 +140,7 @@
 
             android:layout_width="330dp"
             android:layout_height="192dp"
-
+            android:textIsSelectable="true"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
